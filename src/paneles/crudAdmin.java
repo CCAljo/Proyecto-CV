@@ -34,6 +34,9 @@ public class crudAdmin extends javax.swing.JPanel {
 
         DefaultTableModel modeloTabla = new DefaultTableModel();
         jtblCrud.setRowHeight(30);
+        if (!new crudController().existeUsuarioSinHuella(jtxtCedula.getText(), "usuarios")) {
+            new crudController().eliminarDatosIncompletos();
+        }
         jtblCrud.setModel(new crudController().cargarTablaUser());
         formatoTitulos();
         jlblOcultar.setVisible(false);
@@ -120,6 +123,7 @@ public class crudAdmin extends javax.swing.JPanel {
         jpActualizar = new javax.swing.JPanel();
         jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jtblCrud = new javax.swing.JTable();
@@ -356,12 +360,12 @@ public class crudAdmin extends javax.swing.JPanel {
         jpAniadir.setLayout(jpAniadirLayout);
         jpAniadirLayout.setHorizontalGroup(
             jpAniadirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpAniadirLayout.createSequentialGroup()
-                .addContainerGap(18, Short.MAX_VALUE)
-                .addGroup(jpAniadirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel2)
-                    .addComponent(jLabel1))
-                .addGap(23, 23, 23))
+            .addGroup(jpAniadirLayout.createSequentialGroup()
+                .addContainerGap(29, Short.MAX_VALUE)
+                .addGroup(jpAniadirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING))
+                .addContainerGap())
         );
         jpAniadirLayout.setVerticalGroup(
             jpAniadirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -400,13 +404,14 @@ public class crudAdmin extends javax.swing.JPanel {
         jpEliminar.setLayout(jpEliminarLayout);
         jpEliminarLayout.setHorizontalGroup(
             jpEliminarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpEliminarLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel9)
-                .addContainerGap())
             .addGroup(jpEliminarLayout.createSequentialGroup()
-                .addGap(22, 22, 22)
-                .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jpEliminarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jpEliminarLayout.createSequentialGroup()
+                        .addGap(22, 22, 22)
+                        .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jpEliminarLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel9)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jpEliminarLayout.setVerticalGroup(
@@ -448,11 +453,11 @@ public class crudAdmin extends javax.swing.JPanel {
                 .addContainerGap(20, Short.MAX_VALUE)
                 .addGroup(jpActualizarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpActualizarLayout.createSequentialGroup()
-                        .addComponent(jLabel10)
-                        .addGap(29, 29, 29))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpActualizarLayout.createSequentialGroup()
                         .addComponent(jLabel11)
-                        .addContainerGap())))
+                        .addContainerGap())
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpActualizarLayout.createSequentialGroup()
+                        .addComponent(jLabel10)
+                        .addGap(28, 28, 28))))
         );
         jpActualizarLayout.setVerticalGroup(
             jpActualizarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -464,24 +469,32 @@ public class crudAdmin extends javax.swing.JPanel {
                 .addContainerGap())
         );
 
+        jLabel7.setFont(new java.awt.Font("Microsoft YaHei UI", 1, 24)); // NOI18N
+        jLabel7.setText("Registro administradores");
+
         javax.swing.GroupLayout jpPanelOpcionesLayout = new javax.swing.GroupLayout(jpPanelOpciones);
         jpPanelOpciones.setLayout(jpPanelOpcionesLayout);
         jpPanelOpcionesLayout.setHorizontalGroup(
             jpPanelOpcionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jpPanelOpcionesLayout.createSequentialGroup()
-                .addContainerGap(286, Short.MAX_VALUE)
                 .addComponent(jpAniadir, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jpEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jpActualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(283, 283, 283))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel7)
+                .addGap(59, 59, 59))
         );
         jpPanelOpcionesLayout.setVerticalGroup(
             jpPanelOpcionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jpActualizar, javax.swing.GroupLayout.DEFAULT_SIZE, 119, Short.MAX_VALUE)
             .addComponent(jpEliminar, javax.swing.GroupLayout.DEFAULT_SIZE, 119, Short.MAX_VALUE)
             .addComponent(jpAniadir, javax.swing.GroupLayout.DEFAULT_SIZE, 119, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpPanelOpcionesLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel7)
+                .addGap(43, 43, 43))
         );
 
         jPanel4.setBackground(new java.awt.Color(204, 204, 204));
@@ -529,7 +542,7 @@ public class crudAdmin extends javax.swing.JPanel {
                 .addComponent(jLabel12)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jtxtBusqueda, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(406, Short.MAX_VALUE))
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jScrollPane1)
@@ -602,14 +615,7 @@ public class crudAdmin extends javax.swing.JPanel {
 
     private void jpAniadirMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jpAniadirMouseClicked
 //              jpAniadir.setBackground(Color.white);
-        this.actualizarGuardar = true;
-        this.limpiarTextos();
-        this.desbloquearTextos();
-        this.jbtnGuardar.setEnabled(true);
-        this.jbtnCancelar.setEnabled(true);
-        this.jbtnHuella.setEnabled(true);
-        this.jchkAdmin.setSelected(false);
-        this.jchkSecre.setSelected(false);
+        agregar();
     }//GEN-LAST:event_jpAniadirMouseClicked
 
     private void jpActualizarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jpActualizarMouseEntered
@@ -621,50 +627,11 @@ public class crudAdmin extends javax.swing.JPanel {
     }//GEN-LAST:event_jpActualizarMouseExited
 
     private void jbtnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnGuardarActionPerformed
-        if (!formularioCompleto()) {
-            if (new crudController().existeUsuario(jtxtCedula.getText(), "usuarios")) {
-                if (new crudController().existeUsuario(jtxtCedula.getText(), jtxtNombre.getText(), jtxtApellido.getText())) {
-                    JOptionPane.showMessageDialog(this, "El usuario con C.I. " + jtxtCedula.getText() + " ya esta registrado");
-                } else {
-                    String[] datosUser = new String[8];
-                    datosUser[0] = jtxtCedula.getText();
-                    datosUser[1] = jtxtUsuario.getText();
-                    datosUser[2] = jpassClave.getPassword().toString();
-                    datosUser[3] = jtxtNombre.getText();
-                    datosUser[4] = jtxtApellido.getText();
-                    datosUser[5] = jtxtTelefono.getText();
-                    datosUser[6] = jtxtDireccion.getText();
-                    String checkSeleccion;
-                    if (jchkAdmin.isSelected()) {
-                        checkSeleccion = "1";
-                    } else {
-                        checkSeleccion = "0";
-                    }
-                    datosUser[7] = checkSeleccion;
-                    new crudController().agregarUsuario(datosUser);
-                    this.limpiarTextos();
-                    this.bloquearTextosyBusqueda();
-                }
-                jtblCrud.setModel(new crudController().cargarTablaUser());
-            } else {
-                JOptionPane.showMessageDialog(this, "Registre la huella antes de guardar el usuario");
-            }
-        } else {
-            JOptionPane.showMessageDialog(this, "Complete el formulario antes de guardar");
-        }
+        guardar();
     }//GEN-LAST:event_jbtnGuardarActionPerformed
 
     private void jpActualizarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jpActualizarMouseClicked
-        if (jtxtCedula.getText().isEmpty()) {
-            JOptionPane.showMessageDialog(this, "Primero seleccione una fila de la tabla");
-        } else {
-            this.actualizarGuardar = false;
-            this.desbloquearTextosActualizar();
-            jbtnHuella.setEnabled(true);
-            this.jbtnGuardar.setEnabled(false);
-            jbtnActualizar.setEnabled(true);
-            jbtnCancelar.setEnabled(true);
-        }
+        botonesActualizar();
     }//GEN-LAST:event_jpActualizarMouseClicked
 
     private void jtxtNombreKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtxtNombreKeyTyped
@@ -677,7 +644,7 @@ public class crudAdmin extends javax.swing.JPanel {
         if (!(minusculas || mayusculas || espacio)) {
             evt.consume();
         }
-        if (jtxtNombre.getText().length() > 40) {
+        if (jtxtNombre.getText().length() > 25) {
             evt.consume();
         }
     }//GEN-LAST:event_jtxtNombreKeyTyped
@@ -687,13 +654,12 @@ public class crudAdmin extends javax.swing.JPanel {
 
         boolean mayusculas = key >= 65 && key <= 90;
         boolean minusculas = key >= 97 && key <= 122;
-//        boolean tildes = key <= 160 && key <= 163;
-//        boolean tildes2 = key == 130;
         boolean espacio = key == 32;
-//        boolean acento = key == 239;
-//        boolean enie = key ==164 && key ==165; 
 
-        if (jtxtApellido.getText().length() > 40) {
+        if (!(minusculas || mayusculas || espacio)) {
+            evt.consume();
+        }
+        if (jtxtApellido.getText().length() > 25) {
             evt.consume();
         }
     }//GEN-LAST:event_jtxtApellidoKeyTyped
@@ -733,13 +699,23 @@ public class crudAdmin extends javax.swing.JPanel {
             }
         }
     }//GEN-LAST:event_jtxtCedulaFocusLost
-
+    public boolean existeUsuario() {
+        if (!this.actualizarGuardar) {
+            if (!new crudController().existeUsuario(jtxtCedula.getText(), "usuarios")) {
+                return true;
+            } else {
+                return false;
+            }
+        } else {
+            return false;
+        }
+    }
     private void jbtnActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnActualizarActionPerformed
         if (!formularioCompleto()) {
             String[] datosUser = new String[8];
             datosUser[0] = jtxtCedula.getText();
             datosUser[1] = jtxtUsuario.getText();
-            datosUser[2] = jpassClave.getPassword().toString();
+            datosUser[2] = new String(jpassClave.getPassword());
             datosUser[3] = jtxtNombre.getText();
             datosUser[4] = jtxtApellido.getText();
             datosUser[5] = jtxtTelefono.getText();
@@ -844,28 +820,7 @@ public class crudAdmin extends javax.swing.JPanel {
     }//GEN-LAST:event_jbtnCancelarActionPerformed
 
     private void jbtnHuellaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnHuellaActionPerformed
-        if (formularioCompleto()) {
-            JOptionPane.showMessageDialog(this, "Complete los datos antes de regitrar su huella dactilar");
-        } else {
-            if(!new crudController().existeUsuario(jtxtCedula.getText(), "estudiantes")) {
-            if (!new crudController().existeUsuario(jtxtCedula.getText(), "usuarios")) {
-                if (new crudController().existeUsuarioSinHuella(jtxtCedula.getText(), "usuarios")) {
-                    int opcion = JOptionPane.showConfirmDialog(this, "Ya se ha registrado una huella.\n¿Desea registrar su huella de nuevo?", "Alerta", JOptionPane.YES_NO_OPTION);
-                    if (opcion == 0) {
-                        CapturaHuella capturaHuella = new CapturaHuella(jtxtCedula.getText(), true);
-                        capturaHuella.setVisible(true);
-                    }
-                } else {
-                    CapturaHuella capturaHuella = new CapturaHuella(jtxtCedula.getText(), false);
-                    capturaHuella.setVisible(true);
-                }
-            } else {
-                JOptionPane.showMessageDialog(null, "EL usuario con C.I." + jtxtCedula.getText()+ " ya existe", "Usuario existente", JOptionPane.INFORMATION_MESSAGE);
-            }
-            }else{
-                JOptionPane.showMessageDialog(null, "EL usuario con C.I." + jtxtCedula.getText()+ " esta registrado como estudiante", "Usuario existente", JOptionPane.INFORMATION_MESSAGE);
-            }
-        }
+verificarHuella();
     }//GEN-LAST:event_jbtnHuellaActionPerformed
 
     private void jlblOcultarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jlblOcultarMouseClicked
@@ -1063,6 +1018,7 @@ public class crudAdmin extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel2;
@@ -1094,4 +1050,114 @@ public class crudAdmin extends javax.swing.JPanel {
     private javax.swing.JTextField jtxtUsuario;
     private javax.swing.ButtonGroup tipoUsuario;
     // End of variables declaration//GEN-END:variables
+
+    private void agregar() {
+        this.actualizarGuardar = true;
+        this.limpiarTextos();
+        this.desbloquearTextos();
+        this.jbtnGuardar.setEnabled(true);
+        this.jbtnCancelar.setEnabled(true);
+        this.jbtnHuella.setEnabled(true);
+        this.jchkAdmin.setSelected(false);
+        this.jchkSecre.setSelected(false);
+    }
+
+    private void guardar() {
+        if (!formularioCompleto()) {
+            if (new crudController().existeUsuario(jtxtCedula.getText(), "usuarios")) {
+                if (new crudController().existeUsuario(jtxtCedula.getText(), jtxtNombre.getText(), jtxtApellido.getText())) {
+                    JOptionPane.showMessageDialog(this, "El usuario con C.I. " + jtxtCedula.getText() + " ya esta registrado");
+                } else {
+                    String[] datosUser = new String[8];
+                    datosUser[0] = jtxtCedula.getText();
+                    datosUser[1] = jtxtUsuario.getText();
+                    datosUser[2] = new String(jpassClave.getPassword());
+                    datosUser[3] = jtxtNombre.getText();
+                    datosUser[4] = jtxtApellido.getText();
+                    datosUser[5] = jtxtTelefono.getText();
+                    datosUser[6] = jtxtDireccion.getText();
+                    String checkSeleccion;
+                    if (jchkAdmin.isSelected()) {
+                        checkSeleccion = "1";
+                    } else {
+                        checkSeleccion = "0";
+                    }
+                    datosUser[7] = checkSeleccion;
+                    new crudController().agregarUsuario(datosUser);
+                    this.limpiarTextos();
+                    this.bloquearTextosyBusqueda();
+                }
+                jtblCrud.setModel(new crudController().cargarTablaUser());
+            } else {
+                JOptionPane.showMessageDialog(this, "Registre la huella antes de guardar el usuario");
+            }
+        } else {
+            JOptionPane.showMessageDialog(this, "Complete el formulario antes de guardar");
+        }
+    }
+
+    private void botonesActualizar() {
+        if (jtxtCedula.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Primero seleccione una fila de la tabla");
+        } else {
+            this.actualizarGuardar = false;
+            this.desbloquearTextosActualizar();
+            jbtnHuella.setEnabled(true);
+            this.jbtnGuardar.setEnabled(false);
+            jbtnActualizar.setEnabled(true);
+            jbtnCancelar.setEnabled(true);
+        }
+    }
+
+    private void verificarHuella() {
+                if (this.actualizarGuardar) {
+            //se presiona Guardar
+            if (formularioCompleto()) {
+                JOptionPane.showMessageDialog(this, "Complete los datos antes de regitrar su huella dactilar");
+            } else {
+                if (!new crudController().existeUsuario(jtxtCedula.getText(), "estudiantes")) {
+                    if (!new crudController().existeUsuario(jtxtCedula.getText(), "usuarios")) {
+                        if (new crudController().existeUsuarioSinHuella(jtxtCedula.getText(), "usuarios")) {
+                            int opcion = JOptionPane.showConfirmDialog(this, "Ya se ha registrado una huella.\n¿Desea registrar su huella de nuevo?", "Alerta", JOptionPane.YES_NO_OPTION);
+                            if (opcion == 0) {
+                                CapturaHuella capturaHuella = new CapturaHuella(jtxtCedula.getText(), true);
+                                capturaHuella.setVisible(true);
+                            }
+                        } else {
+                            CapturaHuella capturaHuella = new CapturaHuella(jtxtCedula.getText(), false);
+                            capturaHuella.setVisible(true);
+                        }
+                    } else {
+                        if (new crudController().existeUsuarioSinHuella(jtxtCedula.getText(), "usuarios")) {
+                            int opcion = JOptionPane.showConfirmDialog(this, "Ya se ha registrado una huella.\n¿Desea registrar su huella de nuevo?", "Alerta", JOptionPane.YES_NO_OPTION);
+                            if (opcion == 0) {
+                                CapturaHuella capturaHuella = new CapturaHuella(jtxtCedula.getText(), true);
+                                capturaHuella.setVisible(true);
+                            }
+                        } else {
+                            JOptionPane.showMessageDialog(null, "EL usuario con C.I." + jtxtCedula.getText() + " ya esta registrado", "Usuario existente", JOptionPane.INFORMATION_MESSAGE);
+                        }
+                    }
+                } else {
+                    JOptionPane.showMessageDialog(null, "EL usuario con C.I." + jtxtCedula.getText() + " esta registrado como estudiante", "Usuario existente", JOptionPane.INFORMATION_MESSAGE);
+                }
+            }
+        } else {
+            // se presiona Actualizar
+            System.out.println("editar");
+            if (formularioCompleto()) {
+                JOptionPane.showMessageDialog(this, "Complete los datos antes de regitrar su huella dactilar");
+            } else {
+                if (!new crudController().existeUsuario(jtxtCedula.getText(), "estudiantes")) {
+                    int opcion = JOptionPane.showConfirmDialog(this, "Ya se ha registrado una huella.\n¿Desea registrar su huella de nuevo?", "Alerta", JOptionPane.YES_NO_OPTION);
+                    if (opcion == 0) {
+                        CapturaHuella capturaHuella = new CapturaHuella(jtxtCedula.getText(), true);
+                        capturaHuella.setVisible(true);
+                    }
+                } else {
+                    JOptionPane.showMessageDialog(null, "EL usuario con C.I." + jtxtCedula.getText() + " esta registrado como estudiante", "Usuario existente", JOptionPane.INFORMATION_MESSAGE);
+                }
+            }
+        }
+    }
 }

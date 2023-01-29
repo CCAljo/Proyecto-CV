@@ -92,6 +92,7 @@ public class crudEstudiante extends javax.swing.JPanel {
         jpActualizar = new javax.swing.JPanel();
         jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jtblCrud = new javax.swing.JTable();
@@ -296,20 +297,20 @@ public class crudEstudiante extends javax.swing.JPanel {
         jpAniadirLayout.setHorizontalGroup(
             jpAniadirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jpAniadirLayout.createSequentialGroup()
-                .addGap(45, 45, 45)
-                .addGroup(jpAniadirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGap(51, 51, 51)
+                .addGroup(jpAniadirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel2)
                     .addComponent(jLabel1))
-                .addContainerGap(50, Short.MAX_VALUE))
+                .addContainerGap(44, Short.MAX_VALUE))
         );
         jpAniadirLayout.setVerticalGroup(
             jpAniadirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jpAniadirLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(25, 25, 25)
+                .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel2)
-                .addContainerGap())
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jpEliminar.setBackground(new java.awt.Color(204, 204, 204));
@@ -340,22 +341,20 @@ public class crudEstudiante extends javax.swing.JPanel {
         jpEliminarLayout.setHorizontalGroup(
             jpEliminarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jpEliminarLayout.createSequentialGroup()
-                .addGap(57, 57, 57)
-                .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(37, 37, 37)
+                .addGroup(jpEliminarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel9)
+                    .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(43, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpEliminarLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel9)
-                .addGap(31, 31, 31))
         );
         jpEliminarLayout.setVerticalGroup(
             jpEliminarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jpEliminarLayout.createSequentialGroup()
-                .addContainerGap(26, Short.MAX_VALUE)
-                .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(27, 27, 27)
+                .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel9)
-                .addContainerGap())
+                .addGap(26, 26, 26))
         );
 
         jpActualizar.setBackground(new java.awt.Color(204, 204, 204));
@@ -389,7 +388,7 @@ public class crudEstudiante extends javax.swing.JPanel {
                         .addGap(32, 32, 32)
                         .addComponent(jLabel11))
                     .addGroup(jpActualizarLayout.createSequentialGroup()
-                        .addGap(43, 43, 43)
+                        .addGap(50, 50, 50)
                         .addComponent(jLabel10)))
                 .addContainerGap(33, Short.MAX_VALUE))
         );
@@ -397,30 +396,38 @@ public class crudEstudiante extends javax.swing.JPanel {
             jpActualizarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jpActualizarLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jLabel10)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel11)
-                .addContainerGap())
+                .addGap(24, 24, 24))
         );
+
+        jLabel7.setFont(new java.awt.Font("Microsoft YaHei UI", 1, 24)); // NOI18N
+        jLabel7.setText("Registro estudiante");
 
         javax.swing.GroupLayout jpPanelOpcionesLayout = new javax.swing.GroupLayout(jpPanelOpciones);
         jpPanelOpciones.setLayout(jpPanelOpcionesLayout);
         jpPanelOpcionesLayout.setHorizontalGroup(
             jpPanelOpcionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jpPanelOpcionesLayout.createSequentialGroup()
-                .addContainerGap(232, Short.MAX_VALUE)
                 .addComponent(jpAniadir, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jpEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(18, 18, 18)
                 .addComponent(jpActualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(190, 190, 190))
+                .addGap(47, 47, 47)
+                .addComponent(jLabel7)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jpPanelOpcionesLayout.setVerticalGroup(
             jpPanelOpcionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jpEliminar, javax.swing.GroupLayout.DEFAULT_SIZE, 132, Short.MAX_VALUE)
             .addComponent(jpAniadir, javax.swing.GroupLayout.DEFAULT_SIZE, 132, Short.MAX_VALUE)
             .addComponent(jpActualizar, javax.swing.GroupLayout.DEFAULT_SIZE, 132, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpPanelOpcionesLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel7)
+                .addGap(43, 43, 43))
         );
 
         jPanel4.setBackground(new java.awt.Color(204, 204, 204));
@@ -476,11 +483,10 @@ public class crudEstudiante extends javax.swing.JPanel {
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(jpCrudLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(jpCrudLayout.createSequentialGroup()
-                        .addComponent(jpPanelOpciones, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
+                        .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, 860, Short.MAX_VALUE)
+                        .addContainerGap())
+                    .addComponent(jpPanelOpciones, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
         jpCrudLayout.setVerticalGroup(
             jpCrudLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -589,7 +595,7 @@ public class crudEstudiante extends javax.swing.JPanel {
         if (!(minusculas || mayusculas || espacio)) {
             evt.consume();
         }
-        if (jtxtNombre.getText().length() > 40) {
+        if (jtxtNombre.getText().length() > 25) {
             evt.consume();
         }
     }//GEN-LAST:event_jtxtNombreKeyTyped
@@ -604,7 +610,7 @@ public class crudEstudiante extends javax.swing.JPanel {
         if (!(minusculas || mayusculas || espacio)) {
             evt.consume();
         }
-        if (jtxtApellido.getText().length() > 40) {
+        if (jtxtApellido.getText().length() > 25) {
             evt.consume();
         }
     }//GEN-LAST:event_jtxtApellidoKeyTyped
@@ -843,6 +849,7 @@ public class crudEstudiante extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel2;

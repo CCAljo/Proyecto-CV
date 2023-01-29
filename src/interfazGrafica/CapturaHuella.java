@@ -368,7 +368,7 @@ public class CapturaHuella extends javax.swing.JDialog {
         if (featuresinscripcion != null) {
             try {
                 DibujarHuella();
-                System.out.println("Las Caracteristicas de la Huella han sido creada");
+                //System.out.println("Las Caracteristicas de la Huella han sido creada");
                 Reclutador.addFeatures(featuresinscripcion);// Agregar las caracteristicas de la huella a la plantilla a crear
 
                 // Dibuja la huella dactilar capturada.
@@ -500,7 +500,7 @@ public class CapturaHuella extends javax.swing.JDialog {
                 
                 if (!identificarHuella()) {
                     PreparedStatement guardarStmt = c.prepareStatement("INSERT INTO usuarios(cedula, huella,estado) values(?,?,?)");
-                    System.out.println(tamañoHuella);
+                    //      System.out.println(tamañoHuella);
                     guardarStmt.setString(1, this.cedula);
                     guardarStmt.setBinaryStream(2, datosHuella, tamañoHuella);
                     guardarStmt.setString(3, "1");

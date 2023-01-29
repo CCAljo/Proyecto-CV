@@ -111,9 +111,12 @@ public class paginaPrincipal_Secre extends javax.swing.JFrame {
     }
 
     private void cerrar() {
-        InicioPrincipal loguin = new InicioPrincipal();
-        loguin.setVisible(true);
-        this.setVisible(false);
+        int opcion = JOptionPane.showConfirmDialog(this, "¿Desea salir?", "Alerta", JOptionPane.YES_NO_OPTION);
+        if (opcion == 0) {
+            InicioPrincipal loguin = new InicioPrincipal();
+            loguin.setVisible(true);
+            this.setVisible(false);
+        }
     }
 
     /**

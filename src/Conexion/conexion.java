@@ -38,7 +38,7 @@ public class conexion {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
             conn = DriverManager.getConnection("jdbc:mysql://localhost/registroestudiantes", "root", "");
-            System.out.println("ok");
+            //System.out.println("ok");
             return conn;
         } catch (Exception ex) {
             JOptionPane.showMessageDialog(null, ex);
@@ -48,6 +48,6 @@ public class conexion {
 
     public void desconectar() {
         conn = null;
-        System.out.println("Desconexion a base de datos listo...");
+        //System.out.println("Desconexion a base de datos listo...");
     }
 }
